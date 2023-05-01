@@ -69,9 +69,7 @@ function addItemsToList(item) {
 }
 window.addEventListener("offline", () => {
   const container = document.querySelector(".container");
-  if (!snapshot.exists()) {
   container.lastElementChild.innerHTML = `<b>Sorry, No internet connection😓</b>`;
-    }
 });
 
 if (shoppingListUl.innerHTML == "") {
