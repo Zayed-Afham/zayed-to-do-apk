@@ -25,7 +25,7 @@ const shoppingListUl = document.getElementById("shopping-list");
 addButton.addEventListener("click", () => {
   let inputValue = input.value;
 
-  if (inputValue !== "" && inputValue !== " ") {
+  if (!inputValue?.length) {
     // console.log(inputValue);
     push(shoppingListInDB, inputValue);
     clearInputValue();
