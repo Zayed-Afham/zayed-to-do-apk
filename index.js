@@ -61,7 +61,7 @@ function addItemsToList(item) {
   let itemValue = item[1];
   let newLi = document.createElement("li");
   newLi.textContent = itemValue;
-  newLi.addEventListener("click", () => {
+  newLi.addEventListener("dblclick", () => {
     let exatLocationOfItemInDB = ref(database, `${particularDB}/${itemID}`);
     remove(exatLocationOfItemInDB);
   });
