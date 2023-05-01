@@ -22,7 +22,7 @@ const input = document.getElementById("input-field");
 const addButton = document.getElementById("add-button");
 const shoppingListUl = document.getElementById("shopping-list");
 
-addButton.addEventListener("click", () => {
+addButton.addEventListener("dblclick", () => {
   let inputValue = input.value;
 
   if (inputValue !== "") {
