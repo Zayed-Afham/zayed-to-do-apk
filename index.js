@@ -24,8 +24,8 @@ const shoppingListUl = document.getElementById("shopping-list");
 
 addButton.addEventListener("click", () => {
   let inputValue = input.value;
-
-  if (!/^\\S.*\\S$/.test(inputValue)) {
+  let regexp = /^\\S.*\\S$/
+  if (!regexp.test(inputValue)) {
     // console.log(inputValue);
     push(shoppingListInDB, inputValue);
     clearInputValue();
