@@ -22,7 +22,7 @@ const input = document.getElementById("input-field");
 const addButton = document.getElementById("add-button");
 const shoppingListUl = document.getElementById("shopping-list");
 
-addButton.addEventListener("dblclick", () => {
+addButton.addEventListener("click", () => {
   let inputValue = input.value;
 
   if (inputValue !== "") {
@@ -61,7 +61,7 @@ function addItemsToList(item) {
   let itemValue = item[1];
   let newLi = document.createElement("li");
   newLi.textContent = itemValue;
-  newLi.addEventListener("click", () => {
+  newLi.addEventListener("dblclick", () => {
     let exatLocationOfItemInDB = ref(database, `${particularDB}/${itemID}`);
     remove(exatLocationOfItemInDB);
   });
