@@ -71,6 +71,7 @@ window.addEventListener("offline", () => {
   const container = document.querySelector(".container");
   container.lastElementChild.innerHTML = `<b>Sorry, No internet connection😓</b>`;
 });
+window.addEventListener("online", () => window.location.reload());
 
 if (shoppingListUl.innerHTML == "") {
   shoppingListUl.innerHTML = "Fetching data, please wait...";
