@@ -23,11 +23,14 @@ const addButton = document.getElementById("add-button");
 const shoppingListUl = document.getElementById("shopping-list");
 
 addButton.addEventListener("click", () => {
-  let inputValue = input.value;
+  let inputValue = input.value.trim();
 
-  if (inputValue.trim() !== "" && !inputValue.startsWith(" ")) {
+  if (inputValue !== "") {
     // console.log(inputValue);
     push(shoppingListInDB, inputValue);
+    clearInputValue();
+  } else {
+    alert("Empty To Do List will not be added");
     clearInputValue();
   }
 });
@@ -39,8 +42,8 @@ onValue(shoppingListInDB, (snapshot) => {
 
     for (let i = 0; i < itemsArray.length; i++) {
       let currentItem = itemsArray[i];
-      let currentItemID = currentItem[0];
-      let currentItemValue = currentItem[1];
+      // let currentItemID = currentItem[0];
+      // let currentItemValue = currentItem[1];
       addItemsToList(currentItem);
     }
   } else {
@@ -62,8 +65,11 @@ function addItemsToList(item) {
   let newLi = document.createElement("li");
   newLi.textContent = itemValue;
   newLi.addEventListener("dblclick", () => {
-    let exatLocationOfItemInDB = ref(database, `${particularDB}/${itemID}`);
-    remove(exatLocationOfItemInDB);
+    let conformed = confirm("Do you want to delete this item?");
+    if (conformed) {
+      let exatLocationOfItemInDB = ref(database, `${particularDB}/${itemID}`);
+      remove(exatLocationOfItemInDB);
+    }
   });
   shoppingListUl.append(newLi);
 }
